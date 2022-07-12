@@ -21,12 +21,12 @@ namespace AppFitness.BL.Model
         /// <summary>
         /// Пол.
         /// </summary>
-        public Gender Gender { get; }
+        public Gender Gender { get; set; }
 
         /// <summary>
         /// Дата рождения.
         /// </summary>
-        public DateTime BirthDate { get; }
+        public DateTime BirthDate { get; set; }
 
         /// <summary>
         /// Вес.
@@ -38,6 +38,22 @@ namespace AppFitness.BL.Model
         /// </summary>
         public double Height { get; set; }
         #endregion
+        
+        /// <summary>
+        /// Получить возраст пользователя.
+        /// </summary>
+        /// <returns></returns>
+        public int GetAge()
+        {
+            int age = DateTime.Now.Year - BirthDate.Year;
+
+            if (BirthDate > DateTime.Now.AddYears(-age))
+            {
+                age--;
+            }
+
+            return age;
+        }
 
         /// <summary>
         /// Создать новго пользователя.
@@ -82,10 +98,20 @@ namespace AppFitness.BL.Model
             Weight = weight;
             Height = height;
         }
+        
+        public User(string name)
+        {
+            if (string.IsNullOrWhiteSpace(name))
+            {
+                throw new ArgumentNullException("Имя пользователя нем ожет быть пустым или null.", nameof(name));
+            }
+
+            Name = name;
+        }
 
         public override string ToString()
         {
-            return Name;
+            return Name +  " " + GetAge();
         }
     }
 }
