@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace AppFitness.BL.Model
 {
@@ -103,7 +100,7 @@ namespace AppFitness.BL.Model
         {
             if (string.IsNullOrWhiteSpace(name))
             {
-                throw new ArgumentNullException("Имя пользователя нем ожет быть пустым или null.", nameof(name));
+                throw new ArgumentNullException("Имя пользователя не может быть пустым или null.", nameof(name));
             }
 
             Name = name;
