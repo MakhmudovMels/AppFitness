@@ -1,6 +1,8 @@
 ﻿using AppFitness.BL.Controller;
 using AppFitness.BL.Model;
 using System;
+using System.Globalization;
+using System.Resources;
 
 namespace AppFitness.CMD
 {
@@ -8,11 +10,13 @@ namespace AppFitness.CMD
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Вас приветствует приложение AppFitness");
-            Console.WriteLine("Введите имя пользователя: ");
-            var name = Console.ReadLine();
+            var culture = CultureInfo.CreateSpecificCulture("ru-ru");
+            var resourceManager = new ResourceManager("AppFitness.CMD.Languages.Messages", typeof(Program).Assembly);
 
-            
+            Console.WriteLine(resourceManager.GetString("Hello", culture));
+
+            Console.WriteLine(resourceManager.GetString("EnterName", culture));
+            var name = Console.ReadLine();
 
             var userController = new UserController(name);
             var eatingController = new EatingController(userController.CurrentUser);
