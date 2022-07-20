@@ -46,13 +46,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Languages\Messages_en_us.Designer.cs">
-      <DependentUpon>Messages_en_us.resx</DependentUpon>
+    <Compile Include="Languages\Messages.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="Languages\Messages.Designer.cs">
       <DependentUpon>Messages.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Languages\Messages_en_us.Designer.cs">
+      <DependentUpon>Messages_en_us.resx</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
