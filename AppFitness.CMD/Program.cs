@@ -31,7 +31,7 @@ namespace AppFitness.CMD
 
                 userController.SetNewUserData(gender, birthDate, weight, height);
             }
-
+            
             Console.WriteLine(userController.CurrentUser);
 
             while (true)

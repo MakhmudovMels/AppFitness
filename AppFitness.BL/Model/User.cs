@@ -10,10 +10,12 @@ namespace AppFitness.BL.Model
     public class User
     {
         #region Свойства
+        public int Id { get; set; }
+
         /// <summary>
         /// Имя.
         /// </summary>
-        public string Name { get; }
+        public string Name { get; set; }
 
         /// <summary>
         /// Пол.
@@ -60,6 +62,9 @@ namespace AppFitness.BL.Model
         /// <param name="birthDate"> Дата рождения. </param>
         /// <param name="weight"> Вес. </param>
         /// <param name="height"> Рост. </param>
+        
+        public User() { }
+
         public User(string name, Gender gender, DateTime birthDate, double weight, double height)
         {
             #region Проверка условий
